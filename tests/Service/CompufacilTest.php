@@ -9,7 +9,7 @@ class CompufacilTest extends \PHPUnit\Framework\TestCase
     public function testSignUp_returnId_whenPassedData()
     {
         $service = new Compufacil();
-        $result = $service->signIn('jean@compufacil.com.br', '123456');
+        $result = $service->signIn('test@jhonmike.com.br', '123456');
         static::assertTrue(isset($result['access_token']));
     }
 
@@ -30,7 +30,7 @@ class CompufacilTest extends \PHPUnit\Framework\TestCase
     public function testRpcService_returnDataListClients_whenGetClientWithoutToken()
     {
         $service = new Compufacil();
-        $dataLogin = $service->signIn('jean@compufacil.com.br', '123456');
+        $dataLogin = $service->signIn('test@jhonmike.com.br', '123456');
         $service->setToken($dataLogin['access_token']);
 
         $result = $service->rpcService('person.get-person.json', [
