@@ -14,7 +14,7 @@ class CompufacilTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @expectedException Exception
+     * @expectedException \Compufacil\Service\CompufacilException
      * @expectedExceptionMessage Invalid token
      */
     public function testRpcService_returnExceptionToken_whenGetClientWithoutToken()

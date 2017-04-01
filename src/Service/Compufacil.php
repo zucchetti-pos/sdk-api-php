@@ -36,7 +36,7 @@ class Compufacil
     public function rpcService(string $serviceName, array $params) : array
     {
         if (empty($this->token)) {
-            throw new \Exception("Invalid token", 1);
+            throw CompufacilException::invalidToken();
         }
 
         $config = $this->getConfig();
