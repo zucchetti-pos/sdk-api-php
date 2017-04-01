@@ -5,22 +5,17 @@ namespace Compufacil\Service;
 class Compufacil
 {
     private $token;
-    private $config;
-    private $defaultConfig = [
-        'url' => 'http://homolog.compufacil.com.br',
-        'version' => '1'
-    ];
+    private $configuration;
 
-    public function __construct(array $config = [])
+    public function __construct(Configuration $configuration)
     {
-        $this->config = $config;
+        $this->configuration = $configuration;
     }
 
     public function signIn(string $email, string $password)
     {
-        $config = $this->getConfig();
         $params = [
-            'url' => $config['url'].'/rpc/v'.$config['version'].'/application.authenticate.json',
+            'url' => $this->buildUrl('application.authenticate.json'),
             'content' => [
                 'login' => $email,
                 'password' => $password
@@ -39,9 +34,8 @@ class Compufacil
             throw CompufacilException::invalidToken();
         }
 
-        $config = $this->getConfig();
         $data = [
-            'url' => $config['url'].'/rpc/v'.$config['version'].'/'.$serviceName,
+            'url' => $this->buildUrl($serviceName),
             'content' => $params
         ];
 
@@ -53,13 +47,13 @@ class Compufacil
         $opts = [
             'http' => [
                 'method' => 'POST',
-                'header' => "Content-type: application/x-www-form-urlencoded",
+                'header' => 'Content-type: application/x-www-form-urlencoded',
                 'content' => http_build_query($data['content']),
             ],
         ];
 
         if ($this->token) {
-            $opts['http']['header'] .= "\nAuthorization-Compufacil: ".$this->token;
+            $opts['http']['header'] .= sprintf("\n Authorization-Compufacil: %s", $this->token);
         }
 
         $context = stream_context_create($opts);
@@ -68,15 +62,14 @@ class Compufacil
         return json_decode($result, true);
     }
 
-    public function setConfig($config) : Compufacil
+    public function buildUrl(string $serviceName) : string
     {
-        $this->config = $config;
-        return $this;
-    }
-
-    public function getConfig() : array
-    {
-        return array_merge_recursive($this->defaultConfig, $this->config);
+        return sprintf(
+            "%s/rpc/v%s/%s",
+            $this->configuration->getBaseUrl(),
+            $this->configuration->getVersion(),
+            $serviceName
+        );
     }
 
     public function setToken($token) : Compufacil
