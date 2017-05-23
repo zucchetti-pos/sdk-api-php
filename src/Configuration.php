@@ -1,26 +1,26 @@
 <?php
 
-namespace Compufacil\Service;
+namespace Compufacil;
 
 class Configuration
 {
-    private $baseUrl;
+    private $environment;
     private $version;
 
     public function __construct(array $data = [])
     {
-        $this->baseUrl = isset($data['baseUrl']) ? $data['baseUrl'] : 'http://homolog.compufacil.com.br' ;
+        $this->environment = isset($data['environment']) ? $data['environment'] : Environment::HOMOLOG ;
         $this->version = isset($data['version']) ? $data['version'] : '1' ;
     }
 
-    public function getBaseUrl()
+    public function getEnvironment()
     {
-        return $this->baseUrl;
+        return $this->environment;
     }
 
-    public function setBaseUrl($baseUrl)
+    public function setEnvironment($environment)
     {
-        $this->baseUrl = $baseUrl;
+        $this->environment = $environment;
         return $this;
     }
 
@@ -38,7 +38,7 @@ class Configuration
     public function toArray()
     {
         return [
-            'baseUrl' => $this->baseUrl,
+            'environment' => $this->environment,
             'version' => $this->version
         ];
     }

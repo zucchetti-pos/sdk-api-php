@@ -1,6 +1,6 @@
 <?php
 
-namespace Compufacil\Service;
+namespace Compufacil;
 
 class CompufacilException extends \Exception
 {
