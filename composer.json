@@ -3,12 +3,12 @@
     "description": "Compufácil SDK for PHP",
     "keywords": ["compufacil", "sdk"],
     "type": "library",
-    "homepage": "https://github.com/compufour/php-api-sdk",
-    "license": "Compufácil Platform",
+    "homepage": "https://github.com/compufour/sdk-api-php",
+    "license": "Compufacil Platform",
     "authors": [
         {
-            "name": "Compufácil",
-            "homepage": "https://github.com/compufour/php-api-sdk/contributors"
+            "name": "Compufacil",
+            "homepage": "https://github.com/compufour/sdk-api-php/contributors"
         }
     ],
     "require": {
