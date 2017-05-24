@@ -1,3 +1,10 @@
+Instalação SDK
+==============
+
+O Compufácil PHP SDK tem como dependência de instalação o `composer`. Execute o seguinte comando:
+
+    composer require compufacil/api-sdk
+
 Integrando a API da CompuFácil via SDK PHP
 ==========================================
 
