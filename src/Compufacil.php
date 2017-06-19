@@ -24,7 +24,7 @@ class Compufacil
         return $result;
     }
 
-    public function rpcService(string $serviceName, array $params) : array
+    public function rpcService(string $serviceName, array $params = [])
     {
         if (empty($this->token)) {
             throw CompufacilException::invalidToken();
@@ -33,7 +33,7 @@ class Compufacil
         return $this->streamService($this->buildEndpoint($serviceName), 'POST', $params);
     }
 
-    public function streamService(string $endpoint, string $method = 'POST', array $params = []) : array
+    public function streamService(string $endpoint, string $method = 'POST', array $params = [])
     {
         $opts = [
             'http' => [
@@ -56,7 +56,7 @@ class Compufacil
         return json_decode($result, true);
     }
 
-    public function buildEndpoint(string $serviceName) : string
+    public function buildEndpoint(string $serviceName)
     {
         switch ($this->configuration->getEnvironment()) {
             case Environment::PRODUCTION:
@@ -75,7 +75,7 @@ class Compufacil
         );
     }
 
-    public function setToken($token) : Compufacil
+    public function setToken($token)
     {
         $this->token = $token;
         return $this;
