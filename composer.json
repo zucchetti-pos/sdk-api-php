@@ -1,6 +1,6 @@
 {
     "name": "compufacil/api-sdk",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Compufácil SDK for PHP",
     "keywords": ["compufacil", "sdk"],
     "type": "library",
