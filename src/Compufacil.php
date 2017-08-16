@@ -63,7 +63,7 @@ class Compufacil
                 $baseUrl = 'https://app.compufacil.com.br';
                 break;
             case Environment::HOMOLOG:
-                $baseUrl = 'http://homolog.compufacil.com.br';
+                $baseUrl = 'https://homolog.compufacil.com.br';
                 break;
         }
 
