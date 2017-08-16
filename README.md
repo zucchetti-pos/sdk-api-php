@@ -18,7 +18,7 @@ Existem dois ambiente servindo a API. O ambiente de homologação e
 de produção.
 
 - **Produção**: https://app.compufacil.com.br
-- **Homologação**: http://homolog.compufacil.com.br
+- **Homologação**: https://homolog.compufacil.com.br
 
 Padrão dos serviços
 -------------------
@@ -35,13 +35,13 @@ Módulo e serviço variam de acordo com o que parte do sistema está sendo utili
 
 ```sh
 #listar nfe's
-http://homolog.compufacil.com.br/rpc/v1/fiscal.get-nfe
+https://homolog.compufacil.com.br/rpc/v1/fiscal.get-nfe
 #criar nfe
-http://homolog.compufacil.com.br/rpc/v1/fiscal.post-nfe
+https://homolog.compufacil.com.br/rpc/v1/fiscal.post-nfe
 #atualizar nfe
-http://homolog.compufacil.com.br/rpc/v1/fiscal.put-nfe
+https://homolog.compufacil.com.br/rpc/v1/fiscal.put-nfe
 #deletar nfe
-http://homolog.compufacil.com.br/rpc/v1/fiscal.delete-nfe
+https://homolog.compufacil.com.br/rpc/v1/fiscal.delete-nfe
 
 ```
 
